@@ -12,7 +12,6 @@ int main(int argc, char ** argv) {
 					  's', 't', 'u', 'v', 'w', 'x',
 					  'y', 'z'};
 	int isInAlphabet = 0;
-	char * argument_string = NULL;
 
 	if (argc == 1) {
 		fprintf(stderr, "One argument is expected.\n");
@@ -24,18 +23,26 @@ int main(int argc, char ** argv) {
 		return 1;
 	}
 
-	argument_string = argv[1];
+	char * argument_string = argv[1];
 
-	// first for loop, go trough the argument_string until reaching \0
+	// first for loop, go trough
+	// the argument_string until reaching \0
 	for (int i = 0; argument_string[i] != '\0'; ++i) {
-		// second for loop, check if the character is in the lowercase or uppercase alphabet (and print it if it is).
+		// second for loop, check if the character
+		// is in the lowercase or uppercase alphabet (and print it if it is).
 		for (int x = 0; x < ALPHABET_LENGHT; ++x) {
 			if (argument_string[i] == alphabet[x]) {
 				isInAlphabet = 1;
-				putc(x < CYPHER_OFFSET ? alphabet[x + CYPHER_OFFSET] : alphabet[x - CYPHER_OFFSET], stdout);
+				putc(x < CYPHER_OFFSET ?
+						alphabet[x + CYPHER_OFFSET] :
+						alphabet[x - CYPHER_OFFSET],
+						stdout);
 			} else if (argument_string[i] == toupper(alphabet[x])) {
 				isInAlphabet = 1;
-				putc(x < CYPHER_OFFSET ? toupper(alphabet[x + CYPHER_OFFSET]) : toupper(alphabet[x - CYPHER_OFFSET]), stdout);
+				putc(x < CYPHER_OFFSET ?
+						toupper(alphabet[x + CYPHER_OFFSET]) :
+						toupper(alphabet[x - CYPHER_OFFSET]),
+						stdout);
 			}
 		}
 		// prints the character if it's not in the alphabet.

@@ -1,6 +1,0 @@
-A cli ROT13 cypherer/decypherer.
-
-Only works with the english alphabet (from A to Z, no accents),
-if a character is not valid, it just prints it again.
-
-To compile run 'make' with no arguments.
